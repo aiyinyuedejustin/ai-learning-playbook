@@ -27,6 +27,8 @@
 
 它的每节课固定一个顺序：先尝试，再讲原理，然后看例题、对比反例，接着练习（提示逐渐减少），最后检查点。这个顺序本身就是把学习科学写死在模板里。
 
+最值得改的是它的三个参考文件：`references/course-blueprint.md`（课程蓝图）、`practice-design.md`（练习设计）和 `study-mode.md`（学习模式）。fork 之后改这几个模板，就能适配自己的领域。
+
 **Matt 的 `teach`** 不一次生成整本大纲，而是：
 
 1. 用 `MISSION.md` 钉住为什么学。
@@ -35,7 +37,27 @@
 
 大范围时可以这样配合：先用 anything-to-course 或自己写出模块地图，再让 Matt 的 `teach` 每次只负责其中一章。
 
-**Tutor 类**也有拆章的味道：claude-tutor 的 `/learn <主题>` 会生成带资料的学习计划；learn-anything-skill 直接给出基础、进阶、高级、应用四段编号路径。
+这样可以避免一次生成四十节课，其中不少是凭空编的。
+
+**Tutor 类**也有拆章的味道：
+
+- claude-tutor：`/learn <主题>` 生成带资料的学习计划，有章节感 → `/quiz` 测验 → `/review` 复习。
+- agent-tutor-skill：按概念记录掌握程度，用 FSRS 排复习；可以把 PDF、网址或代码绑定为教材。
+- learn-anything-skill：直接给出编号路径，01–05 是基础，06–09 是进阶，10–11 是高级，12–17 是应用场景。
+
+## 社区里的拆章模板
+
+把几篇帖子的做法合起来，一个可复用的流程是：
+
+1. **定范围**：人写一句话目标加截止日期；AI 输出章节大纲，每章都必须可以验收。
+2. **追问**：用 `grill-me` 或 `interrogate` 逼出假设和盲点，修改大纲。
+3. **每章一个小工作区**（Matt `teach` 的风格）：`MISSION.md`、资料、课节 HTML、学习记录。
+4. **每章结束交出三样东西**：
+   - 5–15 张人审过的 Anki 卡；
+   - 一页用自己的话写的总结，可以放进 Obsidian；
+   - 3 道关掉 AI 也能做的练习。
+5. **每天 Anki**；每周只针对「又忘了的卡」让 AI 再讲一遍。
+6. **落成项目**（可选）：用编码 agent 把这一章做成能跑的小 demo。这才是和 AI 协作，而不只是陪聊。
 
 ## 推荐的组合
 
@@ -72,7 +94,9 @@ learn-<主题>/
 └── progress.md            # 上次学到哪、下次建议什么时候复习
 ```
 
-两个提醒：这个目录要和日常写代码的仓库分开，否则课程文件会混进代码里；Anki 牌组可以用同样的名字，卡片里留一个字段指回对应的笔记。
+也可以加上这些目录：`curriculum/00-map.md` 放 80/20 地图和章节树，`reference/` 放术语表、公式、API 速查，`crystals/` 放 Knowledge Absorber 生成的结构化笔记。同一个结构也可以直接当 Obsidian 库用。
+
+两个提醒：这个目录要和日常写代码的仓库分开，否则课程文件会混进代码里；Anki 牌组可以命名为 `learn-<主题>`，卡片里加一个 `Source:: [[笔记名]]` 字段指回对应的笔记。
 
 ## 改写现成的 skill
 
@@ -95,6 +119,11 @@ learn-<主题>/
 - `practice-design.md`：练习题型换成领域里真正会做的事，比如「改一段 adapter」「解释一份执行记录」。
 - `study-mode.md`：导师会话时长改成 25–40 分钟，到点强制结束去复习。
 
+### 改 Tutor 类和制卡工具
+
+- claude-tutor 或 agent-tutor-skill：把每天新课的上限写进配置或 `NOTES.md`，例如每天一节新课加复习旧卡。
+- Knowledge Absorber 接 Anki：先出结构化笔记，再用 anki-skill 或 learn-skill 抽出原子卡。
+
 ### 按场景挑
 
 | 场景 | 改哪个 | 怎么改 |
@@ -104,6 +133,18 @@ learn-<主题>/
 | 论文变成可复习的卡片 | Knowledge Absorber 接 Anki | 先出结构化笔记，再用 anki-skill 或 learn-skill 拆出一张一事的卡片 |
 | 方案对齐 | `grill-me`、`interrogate` | 先追问定范围，再找盲点，最后交给 Multica 或 Orca 执行 |
 | 防止三分钟热度 | FSRS 类 Tutor 加复习日程 | 在 `NOTES.md` 写死每天的新课上限 |
+
+## 按顺序补齐
+
+如果已经装了 pstack（讲代码这一层已经齐了），可以按这个顺序补：
+
+1. **大纲层**：fork 或安装 [anything-to-course](https://github.com/lowwwbank/anything-to-course)，模板最适合改。
+2. **课程层**：装 Matt 的 [`teach`](https://github.com/mattpocock/skills)，放在单独的学习目录。
+3. **记忆层**：二选一，[claude-tutor](https://github.com/kirilxd/claude-tutor) 的闭环最完整，[agent-tutor-skill](https://github.com/Bhala-Srinivash/agent-tutor-skill) 用的 FSRS 更新。
+4. **材料吸收**（可选，论文多时很值）：[Knowledge Absorber](https://github.com/YuJunZhiXue/StudyAnalysis-Skills)。
+5. **制卡**（可选）：已经在用 Anki 的话，加 [anki-skill](https://github.com/doasfrancisco/anki-skill)。
+
+串起来就是：`grill-me` 写 MISSION → anything-to-course 出大纲 → 每章用 Matt 的 `teach` 或 anything-to-course 的课节 → 读代码时用 pstack 的 `teach` → 当天 `/quiz` → 按 FSRS 或 Anki 隔天回看。
 
 ## 和 AI 一起学，而不是让 AI 替你学
 
