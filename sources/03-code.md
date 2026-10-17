@@ -12,6 +12,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★★（5/5）
+- 原文存档：[原文](raw/web/03-code/anthropic-research-ai-assistance-coding-skills.md)
 
 **做法。**52 名工程师学一个新的 Python 库（Trio），一组用 AI 一组不用，之后不用 AI 做测验。AI 组平均 50%，对照组 67%，差距主要出在 debug。研究把 AI 组的用法分成六种：全委托、渐进依赖、反复让 AI 修 bug 的三种得分低；只问概念、生成后追问为什么、要代码时附带讲解的三种得分接近对照组。论文是 arXiv 2601.20245。
 
@@ -25,6 +26,7 @@
 - 工具：任意编码 agent；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★★（5/5）
+- 原文存档：[原文](raw/web/03-code/simonwillison-guides-agentic-engineering-patterns-interactive-explanat.md)
 
 **做法。**读代码时先让 agent 写一份线性讲解，还不懂就让它做一个动画演示。他用这个办法看懂了词云的阿基米德螺旋布局。文章属于他的"agentic engineering patterns"系列。
 
@@ -38,6 +40,7 @@
 - 工具：Claude Code skill；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code，可移植
 - 评分：★★★★★（5/5）
+- 原文存档：[原文](raw/web/03-code/github-zarazhangrui-codebase-to-course.md)
 
 **做法。**把一个仓库变成单文件 HTML 课程，左边是代码、右边是白话讲解，带动画和"应用型测验"（不是问定义，而是问遇到某个情况该改哪里）。约 5.7k 星。
 
@@ -51,6 +54,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[原文](raw/web/03-code/arxiv-abs-2601-20245.md)
 
 **做法。**上一条研究的论文版本，给出了实验设计、六种交互模式的定义和各组分数。AI 组遇到的错误少了约三倍，作者认为"错误正是技能形成的地方"。
 
@@ -64,6 +68,7 @@
 - 工具：Claude Code、Cursor 插件；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code / Cursor
 - 评分：★★★★☆（4/5）
+- 原文存档：[原文](raw/web/03-code/github-backnotprop-pstack.md)
 
 **做法。**一组读代码用的 skill：`/how` 讲架构怎么跑，`/why` 去 git、issue、文档里找证据解释为什么这样设计，`/teach` 把两者合成讲解，`/bro` 用大白话再讲一遍。另有 `interrogate`（对抗评审找盲点）、`arena`（多方案比较）。它没有课程仓库，是一次性讲清。约 1.6k 星。
 
@@ -77,6 +82,7 @@
 - 工具：任意编码 agent、showboat 工具；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[原文](raw/web/03-code/simonwillison-guides-agentic-engineering-patterns-linear-walkthroughs.md)
 
 **做法。**让 agent 按执行顺序逐段讲一个代码库。他用自己的 showboat 工具把真实代码片段 exec 进文档，避免 AI 自己抄错代码。
 
@@ -90,6 +96,7 @@
 - 工具：Claude Code 等（npx skills add -g）；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[原文](raw/web/03-code/github-ktaletsk-learn-codebase.md)
 
 **做法。**用苏格拉底方式带你理解一个代码库，不替你读，而是提问引导你自己去找入口、追调用链。作者明确把它定位为"反 vibe coding"。约 85 星，装好后用 `/learn-codebase` 触发。
 
@@ -103,6 +110,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[帖子全文](raw/x/2055670039723102473.md)
 
 **做法。**把 Anthropic 实验的六种用法讲得最清楚的一条二手帖。评论区补了两句：@kekkodamato_ 说"他们外包的不是代码，是思考"；@GayGuillaume7 说"那 17% 的差距，你会在凌晨 2 点 AI 宕机时发现"。也有人质疑样本小、结论下得太宽，以及卖 AI 的公司发这种研究的立场。
 
@@ -116,6 +124,7 @@
 - 工具：ChatGPT、Copilot；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/03-code/simonwillison-2022-dec-5-rust-chatgpt-copilot.md)
 
 **做法。**他用 Advent of Code 题目学 Rust，遇到编译错误和概念问题就问 ChatGPT，Copilot 帮补语法。文章记录了 AI 解释错误信息很有用，但也会自信地给错答案。HN 上有讨论（33872369）。
 
@@ -129,6 +138,7 @@
 - 工具：Claude Code；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/03-code/github-dieselzhang-repo-mastery.md)
 
 **做法。**把仓库变成从"怎么用"到"架构"再到"实现"的分层课程，每层之间有确定性的掌握关卡，过了才能进下一层，并配间隔复习。输出 md 和 HTML。星数很少。
 
@@ -142,6 +152,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[帖子全文](raw/x/2105183362583515333.md)
 
 **做法。**15 条习惯里最有用的几条：写 prompt 前先写 3 行自己的解法，再和 AI 的对比；每周手动 debug 一次；每月从零写一个东西；记一本"AI 错在哪"笔记。评论区认为只有第一条自带可对比的记录，其余都只是意愿；"错题本"被称为个人 eval 集。
 
@@ -155,6 +166,7 @@
 - 工具：Claude Code、CLI；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code
 - 评分：★★★☆☆（3/5）
+- 原文存档：[帖子全文](raw/x/2029601998492881381.md)
 
 **做法。**每个主题建父目录和子目录，用 CLI 小工具做诊断，再配间隔复习，把 Claude Code 变成数学和编程语言的个性化家教。
 
@@ -168,6 +180,7 @@
 - 工具：Claude、GLM；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/03-code/linux-t-topic-1363792.md)
 
 **做法。**作者用同一套苏格拉底导师提示，分别让 Sonnet 4.5 和 GLM-4.7 教他 einsum。导师给出带 TODO 的代码骨架让他填，再追问。他发现 GLM 的讲解出现了错误，Sonnet 更稳。
 
@@ -181,6 +194,7 @@
 - 工具：任意编码 agent、IDE；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/03-code/linux-t-topic-1359955.md)
 
 **做法。**作者学 Java 后端的做法是：让 AI 写完一个功能，自己在 IDEA 里一步步 debug 看懂，再关掉 AI 手写一遍。回复里有人认同，也有人觉得效率太低。
 
@@ -194,6 +208,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/03-code/github-codecrafters-io-build-your-own-x.md)
 
 **做法。**按"自己写一个 Git、数据库、解释器……"整理的教程合集，星数极高。和 AI 结合的方式是：选一个项目当学习主线，AI 只在卡住时提示。
 
@@ -207,6 +222,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/03-code/news-item-id-49723873.md)
 
 **做法。**Mark Seemann 的文章讨论在 LLM 时代学编程还要不要从基础练起，HN 上约 260 分。讨论里两派都有：一派认为基础练习不可替代，一派认为可以从读 AI 代码开始，但要有意识地做"不用 AI"的练习。
 
@@ -220,6 +236,7 @@
 - 工具：Claude Code；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/03-code/github-anthropics-claude-code-tree-main-plugins-learning-output-style.md)
 
 **做法。**Learning 输出风格的插件版，用 SessionStart hook 在每次会话开始时注入学习模式的指令，效果和 /output-style Learning 相同。
 
@@ -233,6 +250,7 @@
 - 工具：Claude Code；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/03-code/github-nitzan94-claude-code-skills.md)
 
 **做法。**一组 Claude Code skill，包括 AI tutor、sync-context、skillify（把一次对话沉淀成 skill）。星数少。
 
@@ -246,6 +264,7 @@
 - 工具：ChatGPT；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[帖子全文](raw/x/2000094545212747924.md)
 
 **做法。**只给一句提示："你是一名经验丰富的程序员和架构师，擅长用 Claude Code、Codex、Cursor 做 vibe coding，我有计算机基础，想入门，你需要教我。我们来聊一下。"约 540 赞。
 
@@ -259,6 +278,7 @@
 - 工具：任意 AI 编码工具；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[帖子全文](raw/x/2053706425981886849.md)
 
 **做法。**一个完全没有编程基础的人记录了自己用 AI 学 30 天的感受：一开始无从下口，后来一点点问、一点点做。帖子以感受为主，方法细节不多。
 
@@ -272,6 +292,7 @@
 - 工具：Claude Code；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/03-code/shipyard-blog-claude-code-output-styles-pair-programming.md)
 
 **做法。**实测几种输出风格，结论是 Learning 风格最适合结对编程式的学习：AI 讲思路、留空让你写。
 
@@ -285,6 +306,7 @@
 - 工具：终端 TUI、MCP；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★☆☆☆☆（1/5）
+- 原文存档：[原文](raw/web/03-code/github-wizardengineer-airev.md)
 
 **做法。**在终端里审阅 AI 生成的代码改动，带结构化行内评论、间隔复习和基于 MCP 的 agent 反馈。0 星。
 
@@ -298,6 +320,7 @@
 - 工具：Codex；是否需要 MCP：不需要
 - 依赖：依赖 Codex
 - 评分：★☆☆☆☆（1/5）
+- 原文存档：[原文](raw/web/03-code/github-jiangxihu071112-hue-c-learning-skill-codex.md)
 
 **做法。**给 Codex 用的 C 语言学习 skill，含交互教程、例子和练习。0 星。
 

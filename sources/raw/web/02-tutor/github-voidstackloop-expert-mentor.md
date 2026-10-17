@@ -1,0 +1,548 @@
+# voidstackloop/expert-mentor
+
+- 链接：https://github.com/voidstackloop/expert-mentor
+- 作者：voidstackloop
+- 仓库说明：Turn any LLM — Claude, ChatGPT, Gemini, or a local Ollama/llama.cpp model — into a calibrated expert mentor for any field. CLI + Claude Code/opencode agent skill.
+- 星数：1
+- 获取方式：GitHub README + SKILL/说明文件
+
+---
+
+## README
+
+# expert-mentor
+
+**Turn any LLM — Claude, ChatGPT, Gemini, or a local Ollama / llama.cpp model — into a professional teacher for any field.**
+
+`expert-mentor` generates a calibrated expert-mentor system prompt for a field and
+level, runs the tutoring session directly, remembers what you've mastered across
+sessions, and reviews your progress from the transcript.
+
+![Generating a Rust mentor prompt](docs/images/terminal-prompt-rust.png)
+
+<details>
+<summary>More screenshots and diagrams</summary>
+
+![How a field becomes a mentor session](docs/images/diagram-flow.svg)
+![Curated field profiles](docs/images/terminal-fields.png)
+![Supported providers](docs/images/terminal-providers.png)
+![mentor doctor](docs/images/terminal-doctor.png)
+
+More in [docs/diagrams.md](docs/diagrams.md).
+</details>
+
+[![CI](https://github.com/voidstackloop/expert-mentor/actions/workflows/ci.yml/badge.svg)](https://github.com/voidstackloop/expert-mentor/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/expert-mentor.svg)](https://pypi.org/project/expert-mentor/)
+[![Python versions](https://img.shields.io/pypi/pyversions/expert-mentor.svg)](https://pypi.org/project/expert-mentor/)
+[![License: MIT](https://img.shields.io/github/license/voidstackloop/expert-mentor.svg)](LICENSE)
+
+---
+
+## Why
+
+Most "tutor" prompts are a persona and a vibe. This one is a system: a teaching
+contract grounded in learning science (retrieval practice, spacing,
+scaffolding), provider-native request handling, and a persistent learner model.
+The mentor teaches to the standard a real senior practitioner would recognise —
+one concept at a time, checking understanding, and never fabricating sources.
+
+## Highlights
+
+- **Provider-native prompts** — XML-shaped, prompt-cached system blocks for
+  Claude; `developer` role, `max_completion_tokens`, and `reasoning_effort` for
+  ChatGPT reasoning models; correct handling for Gemini, Ollama, and llama.cpp.
+- **Live tutoring sessions** over Anthropic, OpenAI, Ollama, and llama.cpp —
+  standard library only, no runtime dependencies.
+- **Persistent learner memory** — mastered / shaky / misconceptions / open
+  questions, injected into every future session.
+- **Model-assisted review** — turn a session transcript into an updated profile.
+- **Spaced repetition** — generate flashcards from a session and review them with
+  an SM-2-lite scheduler (`mentor cards` / `mentor quiz`).
+- **Curriculum design** — a structured, sequenced multi-week plan for any field.
+- **Usable as an agent skill** — ships with `SKILL.md` for Claude Code / opencode.
+
+## Install
+
+```bash
+# from PyPI
+pipx install expert-mentor        # or: pip install expert-mentor
+
+# from source
+git clone https://github.com/voidstackloop/expert-mentor
+cd expert-mentor
+./install.sh                      # installs `mentor` + links the skill, or:
+pipx install .
+```
+
+No install needed: run it in place with `./bin/mentor ...` or
+`python3 scripts/expert_mentor.py ...`.
+
+## Quick start
+
+```bash
+# Generate a system prompt for a field
+mentor --field "quantum computing" --level beginner
+
+# Run a live tutoring session (local model)
+mentor run --field "Rust" --provider ollama --model qwen2.5:7b
+
+# Run with Claude, remembering progress between sessions
+mentor run --field "Rust" --provider claude --remember
+
+# Build a curriculum
+mentor curriculum --field "Rust" --duration "6 weeks, 5h/week"
+```
+
+## Live sessions
+
+```bash
+# Claude — system prompt is cached and XML-shaped; optional extended thinking
+mentor run --field "contract law" --provider claude --model claude-sonnet-5 --thinking
+
+# ChatGPT — reasoning effort, developer role, usage reported per turn
+mentor run --field "Rust" --provider chatgpt --model gpt-5.6 --reasoning-effort high
+
+# Local — Ollama or a llama.cpp / LM Studio server
+mentor run --field "music theory" --provider ollama --host http://localhost:11434
+```
+
+Credentials come from the environment or a `.env` file
+(`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`). See
+[docs/providers.md](docs/providers.md).
+
+## Remembering a learner
+
+```bash
+# Persist progress automatically (named from the field)
+mentor run --field "Rust" --provider claude --remember
+
+# Inspect or curate the profile
+mentor learners
+mentor progress rust --add-mastered ownership --add-shaky lifetimes --goal "ship idiomatic Rust"
+
+# Assess the last session and update the profile
+mentor review rust --apply
+
+# Turn the session into flashcards and review them over time
+mentor cards rust --generate
+mentor quiz rust
+```
+
+Profiles, transcripts, prompts, and cards live under
+`~/.config/expert-mentor/` as plain JSON/markdown you can read and edit.
+
+## Commands
+
+| Command | Purpose |
+|---------|---------|
+| `mentor --field F [...]` | generate a teaching prompt |
+| `mentor run [NAME]` | live tutoring session (cloud or local) |
+| `mentor save/show/saved` | store and reuse mentor prompts |
+| `mentor curriculum` | sequenced multi-week curriculum prompt |
+| `mentor models` | list / discover Claude & ChatGPT models |
+| `mentor fields` / `providers` | curated field profiles / providers |
+| `mentor learners` / `progress` / `sessions` / `transcript` / `review` | learner memory & assessment |
+| `mentor cards` / `quiz` | spaced-repetition flashcards |
+| `mentor config` | saved defaults |
+| `mentor doctor` | health check |
+| `mentor skill` | install the Claude Code / opencode skill (pip/pipx installs included) |
+| `mentor interactive` | build a profile by answering prompts |
+
+Full reference: [docs/commands.md](docs/commands.md).
+
+## Documentation
+
+- [Getting started](docs/getting-started.md)
+- [Command reference](docs/commands.md)
+- [Providers & credentials](docs/providers.md)
+- [How the mentor teaches](docs/learning.md)
+- [Configuration](docs/configuration.md)
+- [Using it as an agent skill](docs/skill.md)
+- [Development](docs/development.md)
+
+## Requirements
+
+Python 3.8+. No third-party runtime dependencies. A local [Ollama](https://ollama.com)
+or llama.cpp server is optional (for offline use).
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Run `make test` before opening a PR.
+
+## License
+
+[MIT](LICENSE) © expert-mentor contributors.
+
+
+## 文件 SKILL.md
+
+---
+name: expert-mentor
+description: "Use when the user wants to learn, be taught, or be mentored in any field (e.g. 'teach me quantum computing', 'be my Rust mentor', 'explain macroeconomics like a professor'), or wants to turn a cloud AI provider (Claude/Anthropic, ChatGPT/OpenAI, Gemini) or local LLM (Ollama, LM Studio, llama.cpp) into a professional teacher for a given field. Produces a calibrated expert-mentor persona, a learning roadmap, a live tutoring session, or a full curriculum."
+---
+
+# Expert Mentor
+
+Turn any capable model — a cloud provider (Anthropic, OpenAI, Google) or a local
+LLM (Ollama, LM Studio, llama.cpp) — into a **professional teacher for a
+user-specified field**. The mentor teaches to a standard a real senior
+practitioner would recognise, and adapts to the learner in real time.
+
+## Setup (one command)
+
+```bash
+cd ~/projects/expert-mentor
+./install.sh          # or: make install
+```
+
+This installs the `mentor` command into `~/.local/bin`, links the skill into
+`~/.claude/skills/expert-mentor` and `~/.config/opencode/skills/expert-mentor`,
+adds `~/.local/bin` to PATH if needed, and runs a health check. Open a new
+terminal (or `source ~/.bashrc`) and run `mentor doctor`.
+
+No install needed? Run it in place with `./bin/mentor ...` or
+`python3 scripts/expert_mentor.py ...`. Remove everything with `./uninstall.sh`.
+
+Prefer an isolated, pip-managed install instead:
+
+```bash
+pipx install .        # or: pip install --user .
+mentor version
+```
+
+Defaults can be saved so you stop retyping them:
+
+```bash
+mentor config --set provider=claude --set level=intermediate --set style=coaching
+```
+
+## When this skill activates
+
+- The user names a field and asks to be taught, tutored, coached, or mentored.
+- The user wants a system prompt / persona to make a specific model act as a
+  teacher for a field.
+- The user wants to configure a local LLM (Modelfile, LM Studio preset) as an
+  expert mentor.
+
+## Step 1 — Collect the essentials
+
+You need, at minimum:
+
+| Input | Required | Notes |
+|-------|----------|-------|
+| `field` | yes | e.g. "distributed systems", "Spanish literature", "day trading" |
+| `level` | no | beginner / intermediate / advanced / expert — infer from context if absent |
+| `goal` | no | what they want to be able to do |
+| `context` | no | background, prior knowledge, time available |
+| `language` | no | default: same language the user is writing in |
+| `provider` | no | only needed when emitting a prompt/Modelfile for a specific model |
+
+Do not interrogate the user. Infer sensible defaults from the conversation. If
+the **field** itself is ambiguous (e.g. "AI" could be theory, engineering, or
+policy), ask one clarifying question, then proceed.
+
+## Step 2 — Choose the delivery mode
+
+Pick based on what the user actually wants:
+
+**A. Teach me now (default).** Adopt the persona inline and run the session in
+this conversation. Load `templates/mentor_system_prompt.md`, fill the slots, and
+follow it exactly. Start with **Phase 1 — Intake**, then build the roadmap.
+
+**B. Give me a reusable prompt.** The user wants to paste a system prompt into
+another chat or API. Generate it with the script (Step 3) and hand it over.
+
+**C. Configure a provider or local model.** The user wants a deployable artefact
+(system prompt, messages JSON, Ollama Modelfile, LM Studio preset). Generate it
+with the script (Step 3).
+
+**D. Build a curriculum.** The user wants a structured multi-week plan rather
+than live tutoring. Generate a curriculum-design prompt with `mentor curriculum
+--field F --duration "6 weeks, 5h/week"`, then either hand it off or have the
+model produce the plan inline. Ground it in `references/pedagogy.md`.
+
+## Step 3 — Generate the mentor prompt
+
+The generator renders `templates/mentor_system_prompt.md` for a field, level,
+and target provider, then emits it in the format that provider needs.
+
+```bash
+# Print a ready-to-paste system prompt (default: generic text)
+mentor --field "quantum computing" --level beginner
+
+# For a local model as an Ollama Modelfile
+mentor --field "Rust" --level intermediate --provider ollama --emit modelfile > Modelfile
+
+# Messages JSON for an OpenAI-compatible API
+mentor --field "contract law" --provider openai --emit json
+
+# Anthropic Messages API payload
+mentor --field "organic chemistry" --provider anthropic --emit json
+
+# Save a reusable mentor and reuse it later
+mentor save rustbuddy --field "Rust" --level intermediate
+mentor show rustbuddy
+
+# Build and register a local model in one shot (needs ollama installed)
+mentor ollama rusttutor --field "Rust" --compact
+```
+
+Without the installer, replace `mentor` with `python3 scripts/expert_mentor.py`.
+
+Commands:
+
+| Command | Purpose |
+|---------|---------|
+| `mentor --field F [...]` | generate a prompt (default text for the provider) |
+| `mentor prompt --field F` | same, explicit form |
+| `mentor save NAME --field F` | save a reusable system prompt under `~/.config/expert-mentor/prompts/` |
+| `mentor show NAME` | print a saved mentor |
+| `mentor saved` | list saved mentors |
+| `mentor ollama NAME --field F` | write a Modelfile and run `ollama create NAME` |
+| `mentor run [NAME] --field F` | start a live tutoring session (local or cloud) |
+| `mentor curriculum --field F` | generate a full sequenced curriculum prompt |
+| `mentor models [--provider P] [--refresh]` | list Claude/ChatGPT models (live lookup with a key) |
+| `mentor config [--set K=V] [--unset K] [--reset]` | view/edit saved defaults |
+| `mentor learners` | list persisted learner profiles |
+| `mentor progress NAME [...]` | view/update a learner's mastered/shaky/misconception lists |
+| `mentor review NAME [--apply]` | assess the latest transcript and update the learner profile |
+| `mentor cards NAME [--add "Q :: A"] [--generate]` | manage spaced-repetition flashcards |
+| `mentor quiz NAME [--all] [--n N]` | review due flashcards (again/hard/good/easy) |
+| `mentor sessions [NAME]` | list recorded sessions |
+| `mentor transcript ID` | print a session transcript |
+| `mentor fields` | list curated field profiles |
+| `mentor providers` | list providers and their defaults |
+| `mentor doctor` | check the local setup |
+| `mentor version` | print the version |
+| `mentor interactive` | build a profile by answering prompts |
+
+Useful flags:
+
+| Flag | Purpose |
+|------|---------|
+| `--field` | the field to teach (quoted) |
+| `--level` | beginner \| intermediate \| advanced \| expert |
+| `--goal` | the learner's objective |
+| `--context` | the learner's background |
+| `--language` | teaching language |
+| `--style` | socratic \| coaching \| direct \| immersive |
+| `--mentor-name` | override the generated mentor name |
+| `--provider` | generic \| anthropic \| openai \| google \| ollama \| llamacpp (aliases: `claude`, `chatgpt`, `gpt`, `gemini`) |
+| `--emit` | text \| json \| modelfile \| markdown |
+| `--compact` | short prompt for small-context local models |
+| `--out FILE` | write to a file instead of stdout |
+| `--prompt-format` | auto \| markdown \| xml (auto = XML for Claude, markdown otherwise) |
+| `--thinking` / `--thinking-budget N` | Claude extended thinking |
+| `--reasoning-effort` | OpenAI reasoning models: none \| minimal \| low \| medium \| high \| xhigh \| max |
+| `--no-cache` | Claude: disable system-prompt caching |
+| `--show-thinking` | `run`: stream the model's reasoning (dimmed, stderr) |
+
+For **local models**, always use `--compact` if the model has under ~8k context,
+and prefer the `ollama` or `llamacpp` provider so the capability notes match the
+model's real constraints.
+
+### Live sessions (`mentor run`)
+
+Run the mentor directly against a backend — no copy-paste needed:
+
+```bash
+mentor run --field "Rust" --provider ollama --model qwen2.5:7b        # local
+mentor run rustbuddy                                                  # saved mentor
+mentor run --field "contract law" --provider claude --model claude-sonnet-5
+mentor run --field "Rust" --provider chatgpt --model gpt-5.6 --reasoning-effort high
+mentor run --field "Rust" --provider claude --thinking --show-thinking
+mentor run --field "Rust" --provider ollama --once "I'm ready"        # one turn
+mentor run --field "Rust" --provider chatgpt --dry-run                # show payload, send nothing
+```
+
+- **Claude** (`--provider claude`): the system prompt is sent as a cached
+  `system` block (prompt caching), shaped with XML section tags, with optional
+  extended thinking (`--thinking`, `--thinking-budget`).
+- **ChatGPT** (`--provider chatgpt`): reasoning models automatically use the
+  `developer` role and `max_completion_tokens`, drop unsupported `temperature`,
+  and accept `--reasoning-effort`; token usage is reported per turn.
+- **Local**: Ollama (`--host` or `$OLLAMA_HOST`) and llama.cpp / LM Studio
+  (`--host` or `$LLAMACPP_HOST`, OpenAI-compatible).
+- **Credentials**: set `OPENAI_API_KEY` / `ANTHROPIC_API_KEY`, or drop them in
+  `./.env` or `~/.config/expert-mentor/.env`. Override endpoints with
+  `$OPENAI_BASE_URL` / `$ANTHROPIC_BASE_URL`.
+- **Model discovery**: `mentor models --provider claude --refresh` lists the
+  models your key can actually call. `mentor models` shows the built-in catalog.
+- Interactive commands: `/reset` clears history, `/exit` quits. Requests retry
+  automatically on rate limits and transient errors.
+- `--dry-run` prints the exact request body (including cache/thinking/reasoning
+  fields) and is handy for debugging.
+
+### Persistent learners (`--learner` / `--remember`)
+
+Give a session a memory so the mentor adapts across days instead of starting
+over:
+
+```bash
+mentor run --field "Rust" --provider ollama --remember        # auto-name from field
+mentor run --field "Rust" --provider claude --learner rust    # explicit name
+```
+
+- The mentor's system prompt is injected with the learner's **mastered**,
+  **shaky**, **misconception**, and **open-question** lists (only once there is
+  history to report).
+- Each session transcript is written to `~/.config/expert-mentor/sessions/`.
+- Curate the model yourself:
+
+```bash
+mentor progress rust --add-mastered ownership --add-shaky lifetimes \
+    --add-misconception "Rc == Arc" --goal "write idiomatic Rust"
+mentor learners
+mentor sessions rust
+mentor transcript <id>
+```
+
+Profiles live in `~/.config/expert-mentor/learners/<name>.json` — plain JSON you
+can edit by hand.
+
+**Automatic review.** After a session, let the model assess the transcript and
+update the record for you:
+
+```bash
+mentor review rust              # show proposed changes (calls the model)
+mentor review rust --apply      # write them to the profile
+mentor review rust --dry-run    # show the review prompt, call nothing
+```
+
+The reviewer reuses the provider the session was run with, extracts a strict
+JSON assessment (mastered / shaky / misconceptions / open questions / level /
+next lesson), and merges it — promoting anything newly mastered out of *shaky*.
+This closes the loop: run → transcript → assessment → updated profile, with no
+manual bookkeeping.
+
+**Spaced repetition.** Turn a session into flashcards and review them over time:
+
+```bash
+mentor cards rust --generate                   # build cards from the latest session
+mentor cards rust --add "What is ownership? :: Each value has one owner."
+mentor cards rust                              # list, with due counts
+mentor quiz rust                               # review what is due (again/hard/good/easy)
+mentor quiz rust --all --n 20                  # review ahead
+```
+
+Cards use an SM-2-lite scheduler (interval, ease, reps) stored in
+`~/.config/expert-mentor/learners/<name>.cards.json`, so review scheduling
+carries across sessions and machines.
+
+## Step 4 — Run the session (or hand off the prompt)
+
+If teaching inline, obey the loaded prompt's **Teaching Contract** without
+exception. The non-negotiables:
+
+1. Guide with hints before giving answers.
+2. One concept at a time; verify before advancing.
+3. After each explanation, ask a retrieval question the learner must answer.
+4. Every session leaves the learner having produced something.
+5. Never fabricate facts, citations, formulas, or APIs — flag uncertainty.
+
+If handing off, tell the user exactly where to paste the output and how to set
+the temperature (the script prints a recommended value).
+
+## Files
+
+- `pyproject.toml` — packaging metadata, console entry points, tooling config.
+- `LICENSE` — MIT.
+- `.github/workflows/ci.yml` — CI: self-test matrix, health check, package build.
+- `install.sh` / `uninstall.sh` — one-command setup and teardown.
+- `bin/mentor` — the `mentor` launcher (resolves symlinks, runs the generator).
+- `Makefile` — `make install | test | doctor | fields | demo | clean`.
+- `templates/mentor_system_prompt.md` — the master mentor prompt (edit to tune).
+- `templates/compact_prompt.md` — short variant for small local models.
+- `templates/curriculum_prompt.md` — curriculum-designer prompt.
+- `templates/review_prompt.md` — session-assessment (progress review) prompt.
+- `templates/cards_prompt.md` — flashcard-generation prompt.
+- `scripts/expert_mentor.py` — the CLI: provider-aware prompt/Modelfile/JSON generator.
+- `scripts/mentor_runtime.py` — dependency-free streaming chat adapters (Ollama, llama.cpp, OpenAI, Anthropic).
+- `scripts/mentor_memory.py` — persistent learner profiles and session transcripts.
+- `scripts/mentor_cards.py` — spaced-repetition flashcards (SM-2-lite scheduler).
+- `scripts/selftest.py` — dependency-free test suite (`make test`).
+- `references/pedagogy.md` — the teaching methods the mentor draws on.
+- `references/fields.md` — curated field profiles + how to add your own.
+- `references/providers.md` — capability notes and deployment recipes per provider.
+- `examples/` — ready-made generated outputs for common cases.
+
+
+## 文件 docs/skill.md
+
+# Using expert-mentor as an agent skill
+
+The repository root is a valid skill: [`SKILL.md`](../SKILL.md) tells an agent
+*when* to use expert-mentor and *how* to run it. That makes the whole thing
+usable inside Claude Code and opencode, not just as a CLI.
+
+## Install
+
+```bash
+mentor skill
+```
+
+Works whether `mentor` came from a git checkout or from `pip install`/`pipx
+install`. From a checkout it symlinks the whole repo into the standard
+locations (so it stays live as you edit the repo):
+
+```
+~/.claude/skills/expert-mentor       -> <repo>
+~/.config/opencode/skills/expert-mentor -> <repo>
+```
+
+From a pip/pipx install (no repo to point at) it copies the bundled
+`SKILL.md`, `templates/`, and `references/` into the same locations instead.
+Add `--dir PATH` to install elsewhere, or `--force` to replace a directory
+that already exists there for another reason. `./install.sh` still does the
+same thing as part of its full one-shot setup (launcher + PATH + skill).
+
+Restart the host (opencode loads skills at startup) so it picks up the new skill.
+
+## When it activates
+
+The skill's `description` front-loads the trigger keywords, so an agent loads it
+when the user wants to learn, be taught, or be mentored in a field — or wants to
+turn a provider or local LLM into a teacher. Examples:
+
+- "teach me quantum computing"
+- "be my Rust mentor"
+- "explain macroeconomics like a professor"
+- "make Claude act as an expert tutor for contract law"
+
+## What the agent does
+
+1. **Collects the essentials** — field (required), plus level, goal, context,
+   language, provider (inferred if absent).
+2. **Chooses a delivery mode** — teach now inline, produce a reusable prompt,
+   configure a provider/local model, or design a curriculum.
+3. **Generates with the CLI** — e.g.
+   `mentor --field "Rust" --provider claude --emit json`.
+4. **Runs the session** following the teaching contract, or hands the prompt off.
+
+## Alternative: project or global registration
+
+Instead of symlinks you can register the skill path in your opencode config:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "skills": {
+    "paths": ["~/projects"]
+  }
+}
+```
+
+The loader scans for `**/SKILL.md` inside configured paths, so
+`~/projects/expert-mentor/SKILL.md` is found as the `expert-mentor` skill.
+
+## Files the agent reads
+
+| File | Role |
+|------|------|
+| [`SKILL.md`](../SKILL.md) | trigger + workflow |
+| [`templates/mentor_system_prompt.md`](../templates/mentor_system_prompt.md) | the master prompt |
+| [`templates/compact_prompt.md`](../templates/compact_prompt.md) | small-model variant |
+| [`references/pedagogy.md`](../references/pedagogy.md) | teaching methods |
+| [`references/fields.md`](../references/fields.md) | field profiles |
+| [`references/providers.md`](../references/providers.md) | provider recipes |
+

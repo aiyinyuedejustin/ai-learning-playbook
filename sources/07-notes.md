@@ -12,6 +12,7 @@
 - 工具：任意 agent、Obsidian 作前端；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★★（5/5）
+- 原文存档：[帖子全文](raw/x/2039805659525644595.md)
 
 **做法。**`raw/` 放原始资料，LLM 把它们"编译"成互相链接的 wiki，用 Obsidian 当前端浏览，问答结果再归档回 wiki，定期做 lint 体检。约 6.1 万赞、10.8 万收藏。评论区反复出现的补充是：这只是档案库，学习并没有发生在里面；有人在 AGENTS.md 里加了一层学习层，从概念文章自动出卡、用 FSRS 排期、用缺口追踪器生成研究清单。
 
@@ -25,6 +26,7 @@
 - 工具：任意 agent；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★★（5/5）
+- 原文存档：[帖子全文](raw/x/2041162213160091996.md)
 
 **做法。**他补充自己的用法：每归档一份资料，都会读原文、读摘要，再读 LLM 对"这份资料和 wiki 已有内容怎么衔接、哪里新、哪里意外"的分析。原话的意思是 LLM 让你省掉写，但省不掉读和想。
 
@@ -38,6 +40,7 @@
 - 工具：Claude Code、Obsidian；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★★★☆（4/5）
+- 原文存档：[帖子全文](raw/x/2026853452798898261.md)
 
 **做法。**`/read` 做批判性拆解，`/insights` 做商业分析，`/note` 把内容蒸馏成"地图"（摘要加推理链）和"石头"（原子卡）存进 Obsidian，`/review` 按间隔复习出题、评分、排期。
 
@@ -51,6 +54,7 @@
 - 工具：任意 agent（他用 Opus）、Anki；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[帖子全文](raw/x/2105230345851588984.md)
 
 **做法。**他专门弄了一个学习工作区，规则很简单：学习时的提问原话全部记进 log.md；卡了多次的知识点记进 open.md；计划和资源放 plan.md；复习用 Anki，让 AI 定期根据这些文件生成闪卡。
 
@@ -64,6 +68,7 @@
 - 工具：Gemini Deep Research、NotebookLM、Cursor 类工具、Obsidian；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★★★☆（4/5）
+- 原文存档：[视频字幕全文](raw/transcripts/s_HGV6xPZv0.md)
 
 **做法。**先用 Gemini Deep Research 研究陌生领域，资料多时用 NotebookLM，输出一份 md 学习路径大纲：二级标题是宏观分类，三级标题是知识主题，列表项是原子知识点。然后用 Cursor 类工具（他用 TRAE，也提到 Claude Code 和 Gemini CLI）分四步批量建库（演示从 [07:43](https://www.youtube.com/watch?v=s_HGV6xPZv0&t=463s) 到 [08:14](https://www.youtube.com/watch?v=s_HGV6xPZv0&t=494s)）：文件夹、子文件夹加 MOC、每个原子点一篇带双链的笔记、总览 MOC。他强调 AI 只搭框架，内容要自己写，并定期回到 MOC 写总结。
 
@@ -77,6 +82,7 @@
 - 工具：任意 agent；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[帖子全文](raw/x/2040886266498109826.md)
 
 **做法。**在 Karpathy 帖子下回复：他们在 AGENTS.md 里写了一份带版本号的规范，每次会话 agent 都会读；从概念文章自动出闪卡，用 FSRS 排期，用缺口追踪器生成研究清单。原话是"Karpathy 描述的是档案库，我们加上了掌握"。
 
@@ -90,6 +96,7 @@
 - 工具：Claude Code、Obsidian；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/07-notes/github-charlie947-ai-second-brain.md)
 
 **做法。**Karpathy 式第二大脑的一个实现：原始资料放 `raw/` 不动，AI 维护 `wiki/` 里的链接页面。
 
@@ -103,6 +110,7 @@
 - 工具：任意 LLM、Obsidian；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/07-notes/squaredawaylife-posts-how-to-master-hard-books-with-ai-and-obsidian.md)
 
 **做法。**让 AI 为一本难书生成"掌握套件"：全书地图、原子笔记的空模板、回忆题、闪卡和阅读日程。但读和写仍由人来做。
 
@@ -116,6 +124,7 @@
 - 工具：GitHub；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/07-notes/github-simonw-til.md)
 
 **做法。**"今天学到了什么"仓库：每学到一个小东西就写一篇短 md。Simon Willison 的 TIL 仓库已经积累了上千条，下一条 jbranchaud 的也是同类。
 
@@ -129,6 +138,7 @@
 - 工具：Claude Code 等；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/07-notes/github-sundoubleday-four-question-learning.md)
 
 **做法。**从刘澜《学会如何学习》蒸馏出的 8 个 skill，以"四问学习法"为主框架，配 7 个子 skill。许可证是 CC BY-NC 4.0。
 
@@ -142,6 +152,7 @@
 - 工具：Claude Code 改造版；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[帖子全文](raw/x/2106382018506584463.md)
 
 **做法。**他问过 Claude Code 什么是 MVCC，一周后就忘了，于是做了 maxlearn：从你和 Claude Code 的聊天记录和兴趣里出课、出卡、出测验，放在侧栏里并做间隔复习。
 
@@ -155,6 +166,7 @@
 - 工具：Claude、Obsidian；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/07-notes/felipesinisterra-blog-how-i-set-up-my-second-brain-for-research-with-a.md)
 
 **做法。**讲他怎么按 Karpathy 的思路搭研究用的第二大脑，用 AI 维护资料间的链接。
 
@@ -168,6 +180,7 @@
 - 工具：Obsidian；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/07-notes/notesmakr-blog-how-to-use-obsidian-for-studying.md)
 
 **做法。**一篇 Obsidian 学习指南，说得很直接：漂亮的关系图不等于记住，没有间隔复习，第二大脑就是一台精美的重读机器。
 
@@ -181,6 +194,7 @@
 - 工具：GitHub；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/07-notes/github-jbranchaud-til.md)
 
 **做法。**与上一条同类的 TIL 仓库，按技术分目录。
 
@@ -194,6 +208,7 @@
 - 工具：自托管服务；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/07-notes/readeck.md)
 
 **做法。**自托管的稍后读工具，支持高亮和视频字幕。它不是间隔复习工具，在学习流程里负责"收集"。
 

@@ -12,6 +12,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★★（5/5）
+- 原文存档：[原文](raw/web/04-cards/memory-machines-report.md)
 
 **做法。**用读者在书里的高亮让多个模型生成闪卡，再由有经验的人评审。结论是相当比例（约 36%）的 AI 卡不可用，常见问题是考了不重要的细节、措辞含糊、离开上下文就看不懂。报告附带数据集和一个让模型比拼制卡的评测场。
 
@@ -25,6 +26,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★★（5/5）
+- 原文存档：[帖子全文](raw/x/2046640847161262574.md)
 
 **做法。**他说，审 AI 卡时丢掉三分之一带来的评估、不确定和烦躁成本，比他自己把另外三分之二写出来还高。评论区有人说生成的卡"看着很好，几个月后又困惑又烦"；有人举了一位数学家 6 年 2.5 万张卡、一半新卡是把旧卡再抽象的例子。共识是 LLM 只出初稿、人来迭代。
 
@@ -38,6 +40,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★★（5/5）
+- 原文存档：[原文](raw/web/04-cards/andymatuschak-prompts.md)
 
 **做法。**讲怎么写好间隔复习的问题：每张卡只考一个点、答案要精确、要用多个角度考同一个概念、要连到你在乎的事情上。Dwarkesh 早期就是把这篇整段粘进提示词让模型出卡。
 
@@ -51,6 +54,7 @@
 - 工具：Claude Code skill、Anki、Obsidian；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code，思路通用
 - 评分：★★★★★（5/5）
+- 原文存档：[视频字幕全文](raw/transcripts/RocA3wA3QjU.txt)
 
 **做法。**顺序是：自己先读一遍材料，让 Claude Code 用一个 skill 生成 HTML 小测验，做完看分数，只把答错的点交给 Claude Code，由 skill 直接写进 Anki 数据库，不经过导入文件。他明确说"把整篇文章贴进去自动出卡"是弱用法，因为卡片和你真正在意的东西对不上。看 YouTube 时，他用脚本拉字幕，再用一条 slash 命令摘出关心的段落，每条都带时间戳链接存进 Obsidian，卡片背面放一个指向该时间戳的来源字段。
 
@@ -64,6 +68,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[帖子全文](raw/x/2046621455274869235.md)
 
 **做法。**模型的盲区是"现在看着没问题、几个月后复习时看不懂"的卡，因为它从没体验过长期复习。后续更新提到新模型的分数没有明显变好。
 
@@ -77,6 +82,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[帖子全文](raw/x/2046621459637031342.md)
 
 **做法。**他的新方向是：练习题不应该是一成不变的卡片，而应随时间变化、逐步加深，并且知道你当前的上下文，这恰好是 LLM 擅长的。SuperMemo 作者 Wozniak 在回复里补充：别考公式本身，要考你能不能用对公式背后的直觉。
 
@@ -90,6 +96,7 @@
 - 工具：Anki；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[原文](raw/web/04-cards/augmentingcognition-ltm-html.md)
 
 **做法。**讲他怎么用 Anki 读论文：第一遍只为能读懂而做卡，反复几轮读同一篇，每轮都把新理解变成卡。他认为 Anki 让记忆变成一种选择。
 
@@ -103,6 +110,7 @@
 - 工具：任意 LLM；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[帖子全文](raw/x/2049570394110390305.md)
 
 **做法。**他把一期硬核播客（Reiner Pope 讲推理经济学）整理成一个公开的闪卡和练习题网站，约 2.1k 赞、2.5k 收藏。评论区有人给出一种好题型：给出 3 个公开线索（API 价格、延迟目标、上下文长度），让学习者推断瓶颈在哪，再说出什么测量能证伪这个猜测。
 
@@ -116,6 +124,7 @@
 - 工具：Anki；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[帖子全文](raw/x/2085968775585935421.md)
 
 **做法。**长文总结为"AI 负责学得快，Anki 负责忘得慢"。他认为现在可选的不再是"手写哪些卡"，而是"审哪些 AI 卡"，同时提醒要防"欠卡螺旋"：新卡太多、复习越积越多，最后放弃。
 
@@ -129,6 +138,7 @@
 - 工具：Anki、任意 MCP 客户端；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★★★☆（4/5）
+- 原文存档：[原文](raw/web/04-cards/github-ankimcp-anki-mcp-server.md)
 
 **做法。**让 AI 助手直接读写 Anki 的 MCP 服务，现在推荐用 Anki 插件版（服务跑在 Anki 内部），STDIO 版适合 Claude Code 和 Cursor。约 500 星。
 
@@ -142,6 +152,7 @@
 - 工具：Anki、Claude 等 MCP 客户端；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★★★☆（4/5）
+- 原文存档：[原文](raw/web/04-cards/github-nietus-anki-mcp.md)
 
 **做法。**35 个工具，包括 `quiz_me`（在聊天里一题一题考，结果写回 Anki）、`find_leeches`（找出总是忘的卡并修改）、`make_cards`（先预览再添加）和留存率统计。安装是一行 `claude mcp add`。
 
@@ -155,6 +166,7 @@
 - 工具：Anki；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[原文](raw/web/04-cards/github-open-spaced-repetition-fsrs4anki.md)
 
 **做法。**FSRS 算法的 Anki 实现，Anki 23.10 以后已经内置。它根据你的复习记录估计每张卡的记忆稳定性来排期，比老的 SM-2 更准。
 
@@ -168,6 +180,7 @@
 - 工具：Anki、ChatGPT、YouTube；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★★☆（4/5）
+- 原文存档：[原文](raw/web/04-cards/cjauvin-posts-learning-persian.md)
 
 **做法。**他学波斯语时，从 YouTube 课程视频里截图，一张截图做成几种不同类型的卡（只看正面、双向、听写等），ChatGPT 用来解释语法和造例句。卡片大多是带语法的短语，很少是单词。HN 约 260 分，评论里有人说做卡几个月就累了。
 
@@ -181,6 +194,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[帖子全文](raw/x/2046621450304724993.md)
 
 **做法。**介绍 Memory Machines 报告、数据集和评测场的发布帖，是上面几条讨论的起点。
 
@@ -194,6 +208,7 @@
 - 工具：Claude 等；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[帖子全文](raw/x/1816172906705215841.md)
 
 **做法。**他早期的做法是把 Matuschak 的写卡指南整段粘进提示词，再让模型对访谈内容出卡。
 
@@ -207,6 +222,7 @@
 - 工具：Anki（AnkiConnect）；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-nailuogg-anki-mcp-server.md)
 
 **做法。**通过 AnkiConnect 提供牌组、笔记类型、增删改卡等工具的 MCP 服务，约 250 星。
 
@@ -220,6 +236,7 @@
 - 工具：Anki（AnkiConnect）；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-scorzeth-anki-mcp-server.md)
 
 **做法。**除了加卡，还把"到期卡"和"新卡"作为资源暴露给模型，并能更新卡片复习结果，约 190 星。
 
@@ -233,6 +250,7 @@
 - 工具：Claude Code（~/.claude/rules）、Anki MCP；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-vinayakhyde-claude-anki-flashcard-rules.md)
 
 **做法。**一组放进 Claude Code 规则目录的制卡规范，分通用、数学（四层：定义、直觉、推导、应用）、编程、算法几类，配合 Anki MCP 使用。星数少，但规则写得具体。
 
@@ -246,6 +264,7 @@
 - 工具：CLI、MCP；是否需要 MCP：需要
 - 依赖：需 MCP（或 CLI）
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-wpwilson10-spacedrep.md)
 
 **做法。**CLI 加 MCP，直接读写 Anki 的 SQLite，FSRS 状态能和 Anki 互通，不需要打开 Anki 界面。
 
@@ -259,6 +278,7 @@
 - 工具：MCP；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-klutometis-srs-mcp.md)
 
 **做法。**大约 200 行代码包了一层 FSRS，存储用 SQLite 或 Postgres，完全不需要界面，适合放在云主机上，配合定时任务每天出题。
 
@@ -272,6 +292,7 @@
 - 工具：自托管服务、MCP；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-bestnite-engram.md)
 
 **做法。**Go 写的自托管闪卡服务，用 FSRS v6 调度，自带 MCP。linux.do 上有发布帖。
 
@@ -285,6 +306,7 @@
 - 工具：MCP；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-arashbehmand-learners-mcp.md)
 
 **做法。**把资料变成学习地图，然后按预览、讲解、提问、锚定四个阶段走，最后出卡，导出 .apkg 和 md。
 
@@ -298,6 +320,7 @@
 - 工具：Python；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-kerrickstaley-genanki.md)
 
 **做法。**用 Python 生成 Anki 卡包的库，约 2.7k 星。很多学习 skill 用它导出卡片。
 
@@ -311,6 +334,7 @@
 - 工具：Obsidian、Anki；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-obsidiantoanki-obsidian-to-anki.md)
 
 **做法。**把 Obsidian 笔记里按格式写的问答同步成 Anki 卡，约 2k 星。
 
@@ -324,6 +348,7 @@
 - 工具：Obsidian；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-st3v3nmw-obsidian-spaced-repetition.md)
 
 **做法。**在 Obsidian 里直接复习闪卡，新版本支持 FSRS，还可以把整篇笔记放进复习队列。约 2.6k 星。
 
@@ -337,6 +362,7 @@
 - 工具：Claude Code、AnkiConnect；是否需要 MCP：需要
 - 依赖：需 AnkiConnect
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-doasfrancisco-anki-skill.md)
 
 **做法。**在你写代码的过程中，AI 提议原子卡，你批准后才通过 AnkiConnect 写入。约 57 星。
 
@@ -350,6 +376,7 @@
 - 工具：本地应用、LLM；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-humphreysun98-smart-study-agent.md)
 
 **做法。**概念图加 FSRS，并用强化学习挑下一道题，最后可以导出 Anki 卡包。约 58 星。
 
@@ -363,6 +390,7 @@
 - 工具：桌面应用、Anki；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-kevin2li-pdf-guru.md)
 
 **做法。**PDF 工具箱，其中 Anki 模块能把 PDF 的不同格式内容转成卡片，约 4k 星，在备考人群里很流行。
 
@@ -376,6 +404,7 @@
 - 工具：任意 LLM、Anki MCP；是否需要 MCP：需要
 - 依赖：可选 MCP
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-changingself-anki-prompt.md)
 
 **做法。**中文制卡提示词合集，配合 linux.do 上的 Anki MCP 制卡流程帖使用，强调原子化和 HTML 字段格式。
 
@@ -389,6 +418,7 @@
 - 工具：Readwise Reader（Ghostreader）、Obsidian、Anki；是否需要 MCP：不需要
 - 依赖：依赖 Readwise
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/riddle-auto-drafting-flashcards.md)
 
 **做法。**在 Readwise Reader 里用 Ghostreader 为高亮起草卡片，经 Obsidian 插件同步，再进 Anki。作者强调是"起草"，最后要自己改。
 
@@ -402,6 +432,7 @@
 - 工具：ChatGPT；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/news-item-id-44021924.md)
 
 **做法。**有人说自己就让 ChatGPT 按 Anki 的方式考他。回复直接指出：它是 LLM，不是间隔复习系统，同一会话里偶尔再问一遍不等于按遗忘曲线排期。
 
@@ -415,6 +446,7 @@
 - 工具：fata.dev（网页、手机）；是否需要 MCP：不需要
 - 依赖：依赖该产品
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/news-item-id-48489163.md)
 
 **做法。**作者写了 20 年代码，最近几乎全靠 agent，发现自己的技术能力在退化，而且不懂技术就指挥不好 agent。于是做了 fata：每天几分钟的编程知识间隔复习，覆盖 Rust、CSS、React、Python、TypeScript 和架构。HN 约 120 分。
 
@@ -428,6 +460,7 @@
 - 工具：Anki 插件、MCP；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★★☆☆（3/5）
+- 原文存档：[原文](raw/web/04-cards/github-ankimcp-anki-mcp-server-addon.md)
 
 **做法。**ankimcp 的 Anki 插件版本：MCP 服务直接跑在 Anki 内部，不需要另外装 AnkiConnect。约 90 星。
 
@@ -441,6 +474,7 @@
 - 工具：无；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[帖子全文](raw/x/1968594255200530480.md)
 
 **做法。**他认为 AI 制卡适合初学一份材料时降低门槛（卡片比大段材料更容易接受）以及检验学习成果；放进间隔重复系统长期滚动的卡，还是自己做更好。
 
@@ -454,6 +488,7 @@
 - 工具：Anki（AnkiConnect）；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/github-camdenclark-anki-mcp-server.md)
 
 **做法。**另一个通过 AnkiConnect 连接 Anki 的 MCP 服务，约 80 星。
 
@@ -467,6 +502,7 @@
 - 工具：Anki、MCP；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/github-solidspoon-anki-mcp.md)
 
 **做法。**面向词汇学习的 Anki MCP，支持自动生成发音、智能搜索和统计分析。星数少。
 
@@ -480,6 +516,7 @@
 - 工具：Obsidian、LLM API；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/github-crybot-obsidian-flashcards-llm.md)
 
 **做法。**在 Obsidian 里用 LLM 从当前笔记生成闪卡。
 
@@ -493,6 +530,7 @@
 - 工具：Obsidian、Anki、LLM；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/github-ccmdi-obsidianki.md)
 
 **做法。**从 Obsidian 笔记用 AI 生成 Anki 卡的工具。
 
@@ -506,6 +544,7 @@
 - 工具：Obsidian、Anki；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/github-brunimir-knowledge-factory.md)
 
 **做法。**把笔记加工成卡片的流水线工具。
 
@@ -519,6 +558,7 @@
 - 工具：Obsidian、Anki；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/github-lukmay-simple-anki-sync.md)
 
 **做法。**轻量的 Obsidian 到 Anki 同步工具。
 
@@ -532,6 +572,7 @@
 - 工具：Claude Code、Obsidian；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/github-guepardlover77-learn-skill.md)
 
 **做法。**把材料变成学习计划，用 genanki 生成卡包，同时输出 Obsidian 笔记和 SM-2 复习表。
 
@@ -545,6 +586,7 @@
 - 工具：MCP、Anki；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/github-mkrech-anki-course-tutor-mcp-server.md)
 
 **做法。**把辅导会话和 Anki 调度接在一起的 MCP 服务，星数很少。
 
@@ -558,6 +600,7 @@
 - 工具：Notion；是否需要 MCP：不需要
 - 依赖：依赖 Notion
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/notion-templates-spaced-repetition-flashcards-2.md)
 
 **做法。**用 Notion 数据库和公式做的闪卡模板，按下次复习日期筛出今天要复习的卡。
 
@@ -571,6 +614,7 @@
 - 工具：Anki、ChatGPT；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/reddit-r-anki-comments-1bncpwy-to-the-people-who-used-chatgpt-to-creat.md)
 
 **做法。**r/Anki 上问用过 ChatGPT 做卡的人体验如何。常见回复是 AI 卡常常一张塞多个事实、违反最小信息原则，偶尔有事实错误，必须审。
 
@@ -584,6 +628,7 @@
 - 工具：Anki；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/reddit-r-anki-comments-1hov0v9-what-is-the-most-efficient-and-fast-way.md)
 
 **做法。**讨论怎样快速做卡，回复里有人推荐用 AI 出初稿，也有老用户坚持做卡本身就是学习。
 
@@ -597,6 +642,7 @@
 - 工具：Anki；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/reddit-r-anki-comments-1j1rpfd-unpopular-opinion-you-shouldnt-use-ai-t.md)
 
 **做法。**标题是"不受欢迎的观点：不应该用 AI 做闪卡"，约 350 赞。从搜索摘要看，主流回复是"只靠 AI 做卡、又不核对正确性，大概是坏习惯，但某些场景可以"。正文未能直接读取。
 
@@ -610,6 +656,7 @@
 - 工具：Anki；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/reddit-r-anki-comments-1nbwwm3-for-those-who-use-ai-to-create-flashcar.md)
 
 **做法。**征集用 AI 做卡的人的具体做法。相关讨论里有人说 AI 只要配合好提示词就能做出简短的卡，也有人说不严格监督就做不出好卡。正文未能直接读取。
 
@@ -623,6 +670,7 @@
 - 工具：Readwise、Anki；是否需要 MCP：不需要
 - 依赖：依赖 Readwise
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/reddit-r-anki-comments-1hz2y2r-automated-highlighttoanki-cards-using-r.md)
 
 **做法。**用 Readwise 把阅读高亮自动变成 Anki 卡。评论区提醒全自动会让卡片质量下降，中间需要一步"值不值得记"的筛选。
 
@@ -636,6 +684,7 @@
 - 工具：n8n、Readwise、GPT、AnkiConnect；是否需要 MCP：需要
 - 依赖：依赖 n8n 与 Readwise
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/reddit-r-readwise-comments-1ic1uwa-guide-how-i-automated-flashcard-cre.md)
 
 **做法。**一篇指南，用 n8n 串起 Readwise 高亮、GPT 生成和 AnkiConnect 写入。
 
@@ -649,6 +698,7 @@
 - 工具：MCP、Anki；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/news-item-id-44022205.md)
 
 **做法。**同一讨论里有人分享用 MCP 让模型直接把卡写进 Anki。
 
@@ -662,6 +712,7 @@
 - 工具：任意 LLM；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/news-item-id-47063007.md)
 
 **做法。**讨论用 AI 给闪卡起草初稿，再由人修改的做法。
 
@@ -675,6 +726,7 @@
 - 工具：自研产品；是否需要 MCP：不需要
 - 依赖：依赖该产品
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/news-item-id-46599896.md)
 
 **做法。**把 PDF、视频、笔记转成 Anki 或 Mochi 卡片的产品。
 
@@ -688,6 +740,7 @@
 - 工具：自研产品；是否需要 MCP：不需要
 - 依赖：依赖该产品
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/news-item-id-44491043.md)
 
 **做法。**带 AI 的间隔复习产品发布帖。
 
@@ -701,6 +754,7 @@
 - 工具：Chrome 插件、GPT-3、Anki；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/andrewjudson-spaced-repetition-2023-02-01-anki-chrome-html.md)
 
 **做法。**一个 Chrome 插件，选中网页文字后用 GPT-3 生成 Anki 卡。HN 讨论约 200 分，最高赞评论来自每天用 Anki 的人：认真做卡本身就是学习的关键部分，跳过这一步可能只剩死记硬背。
 
@@ -714,6 +768,7 @@
 - 工具：任意 LLM、Python；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/v2ex-t-1085137.md)
 
 **做法。**楼主的笔记是树形结构，希望 AI 能按目录层次生成卡片。回复里有人给出了 JSON 模板加 Python 脚本的做法。
 
@@ -727,6 +782,7 @@
 - 工具：Anki、GPT；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/v2ex-t-1184930.md)
 
 **做法。**楼主让 GPT 把文档导出成 CSV 再导入 Anki，试了一阵觉得对他要记的几百条计算机命令来说效率不高，更愿意用结构化的 md 表格。回复里有人解释间隔复习要长期才见效。
 
@@ -740,6 +796,7 @@
 - 工具：Obsidian；是否需要 MCP：不需要
 - 依赖：依赖 Obsidian
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[帖子全文](raw/x/1900536468638224748.md)
 
 **做法。**发布 Obsidian 社区插件"spaced repetition ai"，可以加闪卡、让 AI 生成卡并在 Obsidian 内复习。约 180 赞。
 
@@ -753,6 +810,7 @@
 - 工具：任意 agent；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/github-cheanus-srsa.md)
 
 **做法。**思路反过来：不是给人背，而是给 agent 自己做 FSRS 记忆卡，让它记住项目规矩。linux.do 上有发布帖。
 
@@ -766,6 +824,7 @@
 - 工具：Anki、MCP；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★★☆☆☆（2/5）
+- 原文存档：[原文](raw/web/04-cards/github-arielbk-anki-mcp.md)
 
 **做法。**让你在聊天里和自己的 Anki 卡片对话的 MCP 服务，星数少。
 
@@ -779,6 +838,7 @@
 - 工具：Claude、MCP；是否需要 MCP：需要
 - 依赖：需 MCP
 - 评分：★☆☆☆☆（1/5）
+- 原文存档：[原文](raw/web/04-cards/github-happymario123-srs-mcp.md)
 
 **做法。**在编程会话里做间隔复习的 MCP，用 SM-2，属于原型，0 星。
 
@@ -792,6 +852,7 @@
 - 工具：浏览器扩展、AnkiConnect；是否需要 MCP：需要
 - 依赖：需 AnkiConnect
 - 评分：★☆☆☆☆（1/5）
+- 原文存档：[原文](raw/web/04-cards/github-qinrose-deepseek-to-anki.md)
 
 **做法。**浏览器扩展，自动识别 DeepSeek 对话中的卡片 JSON，一键加入 Anki。0 星。
 
@@ -805,6 +866,7 @@
 - 工具：思源笔记、Anki；是否需要 MCP：不需要
 - 依赖：依赖思源笔记
 - 评分：★☆☆☆☆（1/5）
+- 原文存档：[原文](raw/web/04-cards/github-thegodofking-notetocard-siyuan.md)
 
 **做法。**思源笔记的 Anki 制卡插件，星数少。
 
@@ -818,6 +880,7 @@
 - 工具：桌面工具、Anki；是否需要 MCP：不需要
 - 依赖：通用
 - 评分：★☆☆☆☆（1/5）
+- 原文存档：[原文](raw/web/04-cards/github-mirrorlious-anki-card-maker.md)
 
 **做法。**面向考研考公的 Anki 制卡工具，支持 AI 辅助、PDF OCR 精准定位和大批量导入导出。星数少。
 
@@ -831,6 +894,7 @@
 - 工具：Claude Code、SQLite CLI；是否需要 MCP：不需要
 - 依赖：依赖 Claude Code
 - 评分：★☆☆☆☆（1/5）
+- 原文存档：[原文](raw/web/04-cards/github-yiwenz123-ielts-vocab-study.md)
 
 **做法。**雅思和托福词汇学习的 Claude Code skill，用 SQLite 命令行工具存词和做间隔复习。0 星。
 
